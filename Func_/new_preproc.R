@@ -108,14 +108,12 @@ pre_proc_ms <- function(datelim = '2020-06-27'){
   #serie_ms <- read_excel('~/Aux_arqs/HIST_PAINEL_COVIDBR_31mai2020.xlsx') #dado do ms
   if(infogripe_data == '2020-06-27'){
     print("ARTICLE DATA")
-    #data_source <- "https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_09jul2020.csv"
-    data_source <- "https://aldebaran.eic.cefet-rj.br/data/covid/article/HIST_PAINEL_COVIDBR_09jul2020.csv"
+    data_source <- "https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_09jul2020.csv"
     serie_ms <- read_delim(data_source, delim = ';',col_types = cols())
     
   }else{
     print("LAST UPDATE OCTOBER 9th")
-    data_source <- "https://aldebaran.eic.cefet-rj.br/data/covid/updated/HIST_PAINEL_COVIDBR_last_version.csv"
-    #data_source <- 'https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_last_version.csv'
+    data_source <- 'https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_last_version.csv'
     serie_ms <- read_delim(data_source, delim = ',',col_types = cols())
   }
   serie_ms["X1"] <- NULL
