@@ -105,7 +105,6 @@ pre_proc_merge <- function(data, tipo){
 
 pre_proc_ms <- function(datelim = '2020-06-27'){
   infogripe_data = datelim
-  #serie_ms <- read_excel('~/Aux_arqs/HIST_PAINEL_COVIDBR_31mai2020.xlsx') #dado do ms
   if(infogripe_data == '2020-06-27'){
     print("ARTICLE DATA")
     data_source <- "https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_09jul2020.csv"
@@ -113,7 +112,7 @@ pre_proc_ms <- function(datelim = '2020-06-27'){
     
   }else{
     print("LAST UPDATE OCTOBER 9th")
-    data_source <- 'https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_last_version.csv'
+    data_source <- "https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_last_version.csv"
     serie_ms <- read_delim(data_source, delim = ',',col_types = cols())
   }
   serie_ms["X1"] <- NULL
