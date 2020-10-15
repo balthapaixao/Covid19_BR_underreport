@@ -1,5 +1,5 @@
-source('https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Func_/timeseries.R')
-source('https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Func_/evtdet.R')
+source("https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Func_/timeseries.R")
+source("https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Func_/evtdet.R")
 library(readxl)
 library(dplyr)
 library(reshape)
@@ -165,7 +165,7 @@ get_anomaly_srag <- function(serie, estado){
   serie_plot$anom <- x
   z <- subset(serie_plot, serie_plot['anom']==TRUE)
   
-  #Bindin data to show anomalies(A_N) and change points(CP_V3) together
+  #Binding data to show anomalies(A_N) and change points(CP_V3) together
   if (nrow(z) != 0){
     z$serie <- estado
     z$type <- "anomaly"
