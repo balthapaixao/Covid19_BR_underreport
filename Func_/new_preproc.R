@@ -108,7 +108,7 @@ pre_proc_ms <- function(datelim = '2020-06-27'){
   if(infogripe_data == '2020-06-27'){
     print("ARTICLE DATA")
     data_source <- "https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_09jul2020.csv"
-    serie_ms <- read_delim(data_source, delim = ',',col_types = cols())
+    serie_ms <- read_csv(data_source, delim = ',',col_types = cols())
     
   }else{
     print("LAST UPDATE OCTOBER 9th")
