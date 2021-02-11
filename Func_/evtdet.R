@@ -431,7 +431,7 @@ evtdet.changepoints_v3 <- function(data,...){
     
     #s[outliers.index(s)] <- NA
     
-    y <- TSPred::MAS(s,m1)
+    y <- TSPred::mas(s,m1)
     
    #Creating dataframe with y
     Y <- as.data.frame(y)
@@ -448,7 +448,7 @@ evtdet.changepoints_v3 <- function(data,...){
     P2 <- tryCatch(TSPred::arimaparameters(M2)$AR, error = function(e) 0)
     m2 <- ifelse(P2!=0,P2,m)
     
-    u <- TSPred::MAS(u,m2)
+    u <- TSPred::mas(u,m2)
     
     cp <- outliers.index(u) + (m1-1) + (m2-1)
     
