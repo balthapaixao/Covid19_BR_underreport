@@ -108,7 +108,8 @@ pre_proc_ms <- function(datelim = '2020-06-27'){
   if(infogripe_data == '2020-06-27'){
     print("ARTICLE DATA")
     data_source <- "https://raw.githubusercontent.com/balthapaixao/Covid19_BR_underreport/master/Aux_arqs/HIST_PAINEL_COVIDBR_09jul2020.csv"
-    serie_ms <- read_csv(data_source, delim = ',',col_types = cols())
+    serie_ms <- read_delim(data_source, col_types = cols(), delim = ",") #read_csv(data_source, col_types = cols())
+    serie_ms$data <- as.Date(paste(2020, serie_ms$semanaEpi, 6, sep="-"), "%Y-%U-%w")
     
   }else{
     print("LAST UPDATE OCTOBER 9th")
@@ -116,6 +117,7 @@ pre_proc_ms <- function(datelim = '2020-06-27'){
     serie_ms <- read_delim(data_source, delim = ';',col_types = cols())
   }
   serie_ms["X1"] <- NULL
+
   serie_ms$casosAcumulado <- as.numeric(serie_ms$casosAcumulado)
   serie_ms$obitosAcumulado <- as.numeric(serie_ms$obitosAcumulado)
   
