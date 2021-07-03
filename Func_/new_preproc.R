@@ -85,7 +85,7 @@ pre_proc_merge <- function(data, tipo){
   if(tipo == 'graph'){
     XU <- merge(x=data, y=ufs, by.x="Unidade da Federação", by.y="Estado") %>% 
       select(sigla=Sigla, datadia, value=total)
-    serie_sem_covid <- cast(XU, datadia ~ sigla)
+    serie_sem_covid <- cast(XU, datadia ~ sigla, mean)
     serie <- list("no_covid" = serie_sem_covid)
   }
   else{ ##else é subnotif
